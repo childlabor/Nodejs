@@ -12,7 +12,7 @@
 - 模板引擎： `Nunjucks`
 - 数据库：`mySQL`
 - ORM: `Sequelize`
-- 具体依赖包及bebal详见 `package.json`
+- 具体依赖详见 `package.json`
 
 ###### 测试方法：
 1. 将`myapp`文件下载至本地
