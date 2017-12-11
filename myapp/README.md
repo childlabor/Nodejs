@@ -9,4 +9,5 @@
 应用模块：
 - 框架：Koa2
 - 模板引擎： Nunjucks
-具体详见package.json 内的依赖包
+- 具体详见 `package.json` 内的依赖包
+
