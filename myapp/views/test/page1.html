@@ -1,0 +1,12 @@
+{% set title='框架测试' %}
+{% set sysName='KOA' %}
+ 
+{% extends '../templating/iframe.html' %}
+
+{% block topNav %}
+    {% for item in navTop %}
+        <li>
+            <a href='{{item.href}}'><span class='{{'top-nav-icon top-nav-icon' + loop.index}}'></span>{{item.name}}</a>
+        </li>
+    {% endfor %}
+{% endblock %}

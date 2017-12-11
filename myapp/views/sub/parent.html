@@ -1,0 +1,30 @@
+{#
+父模板，所有的 block 标签 告诉模板引擎，子模板（页面）可以覆盖模板中的这些部分，super()可理解为添加并保留父模板内容
+#} 
+{% block header %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Full-Stack</title>
+	<link rel="stylesheet" href="/statics/css/reset.css">
+	<link rel="shortcut icon" href="/statics/favicon.ico" />
+</head>
+<body>
+	<h1>以上公共部分头</h1>
+	{% endblock %}
+	
+	{% block main %}
+	<p>父模板中保留未被覆盖的部分</p>
+	{% endblock %}
+	
+	{% block del %}
+	<p>清空</p>
+	{% endblock %}
+	
+{% block footer %}
+	<h1>以下公共部分尾</h1>
+</body>
+</html>
+{% endblock %}

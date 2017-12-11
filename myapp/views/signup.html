@@ -1,0 +1,27 @@
+{% set title = "注了个册" %} 
+{% extends "templating/parent.html" %} 
+
+{% block style %}
+{{super()}}
+<style>
+	input {
+		border: 1px solid #eee;
+		text-indent: 10px;
+		line-height: 24px;
+	}
+	input:focus {
+		border: 1px solid #42d79f;
+	}
+</style>
+
+{% endblock %}
+{% block main %}
+    <h1>用户注册</h1>
+    <form action="/regist" method="post" name="loginForm">
+			<label for="">账号<input type="text" name="account" value="{{account}}"/></label>
+			<label for="">密码<input type="password" name="password"/></label>
+			<input type="submit" />
+    </form>
+    <span>{{register}}</span>
+{% endblock %}
+

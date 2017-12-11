@@ -1,0 +1,39 @@
+{# 父模板，所有的 block 标签 告诉模板引擎，子模板（页面）可以覆盖模板中的这些部分，super()可理解为添加并保留父模板内容 #}
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{ title | default('full-stack', true) }}</title>
+    {% block style %}
+    <link rel="shortcut icon" href="/statics/favicon.ico" />
+    <link rel="stylesheet" href="/statics/css/reset.css">
+    <link rel="stylesheet" href="/statics/css/style.css"> {% endblock %}
+</head>
+
+<body>
+    <div class="nav-bar">
+        <ul class="nav">
+        {% block nav %}
+            <li>导航一</li>
+            <li>导航二</li>
+            <li>导航三</li>
+            <li>导航四</li>
+            <li>导航五</li>
+        {% endblock %}
+        </ul>
+    </div>
+    {% block main %}
+        <p>父模板中保留未被覆盖的部分</p>
+    {% endblock %}
+    {% block script %}
+        <script src="/statics/js/jquery.1.9.1.min.js"></script>
+        <script src="/statics/js/jquery.form.js"></script>
+    {% endblock %}
+
+</body>
+
+
+</html>

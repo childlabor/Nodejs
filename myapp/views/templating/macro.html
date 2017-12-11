@@ -1,0 +1,10 @@
+{# 宏macro集合 #} 
+
+{% macro field(name, value='', type='text', style) %}
+	<div class="field">
+	  <input type="{{ type }}" name="{{ name }}"
+	         value="{{ value | escape }}" style="{{ style }}"/>
+	</div>
+{% endmacro %}
+
+

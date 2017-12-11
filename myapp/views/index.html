@@ -1,0 +1,48 @@
+{% set title = "首了个页" %} 
+{% extends "templating/parent.html" %} 
+
+{% block nav %}
+    {% for i in navTopData %}
+        <li><a href='{{i.href}}'>{{i.list}}</a></li>
+    {% endfor %}
+{% endblock %}
+{% block main %}
+
+    <p><span>用户名：</span>
+	    {% if username %}
+	  		<span>{{username}}</span>
+	  		<a href="/logout">退出</a>
+			{% else %}
+	  		<a href="/">请登录</a>
+	  		<a href="/signup">注册</a>
+			{% endif %}
+    </p>
+    <form action="" method="post" enctype="multipart/form-data" name="fileForm">
+        <input type="file" name="file" multiple>
+        <span class="uploading"></span>
+        <input type="button" value="Upload" id="up">
+    </form>
+    <a href="/download?name=下载测试.txt">下载</a>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+    <script type="text/javascript">
+        $(function(){
+            function uploading() {
+                var form = $("form[name=fileForm]");  
+                var options  = {    
+                    url:'http://localhost:8080/upload',    
+                    type:'post',    
+                    success:function(data)  {
+                    // 回调
+                      $(".uploading").html('上传成功');  
+                    }    
+                };    
+                form.ajaxSubmit(options);   
+            }
+            $("#up").on("click", function(){
+                uploading();
+            });
+        });
+    </script>
+{% endblock %}
